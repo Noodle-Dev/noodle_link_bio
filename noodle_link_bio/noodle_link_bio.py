@@ -1,5 +1,3 @@
-"""Welcome to Reflex! This file outlines the steps to create a basic app."""
-
 import reflex as rx
 from noodle_link_bio.components.navbar import navbar
 from noodle_link_bio.views.header.header import header
@@ -11,16 +9,15 @@ class State(rx.State):
 
 
 def index() -> rx.Component:
-   return rx.vstack(
+   return rx.box(
       navbar(),
-      header(),
-      links(),
-      footer(),
-      #Alignments
-      align_items="center",
-      justify_content="center", 
-      width="100%"  
-   )
+      rx.vstack(
+         header(),
+         links()
+      ),
+      footer()
+   )  
+   
 
 
 app = rx.App()
